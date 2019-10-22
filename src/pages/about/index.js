@@ -3,13 +3,50 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { useSpring, animated, useSprings } from 'react-spring'
+import { Waypoint } from 'react-waypoint'
 /* App imports */
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import Utils from '../../utils'
 import * as style from './index.module.less'
+import software from '../../components/about-info/software-blurb'
+import demo from '../../components/about-info/demo-blurb'
 
-const About = ({ data: { profilePhoto, flagIt, skillIcons, toolIcons } }) => {
+const About = ({ data: { profilePhoto, skillIcons } }) => {
+  const delay = 2
+  const springLeft = useSpring({
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    from: { opacity: 0, transform: 'translate3d(-100%, 0, 0)' },
+    config: {
+      friction: 15,
+      tension: 250,
+    },
+  })
+  const springRight = useSpring({
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    from: { opacity: 0, transform: 'translate3d(100%, 0, 0)' },
+    config: {
+      friction: 15,
+      tension: 250,
+    },
+  })
+  const softwareSprings = useSprings(
+    software.length,
+    software.split('').map((_, index) => ({
+      delay: index * delay,
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+    }))
+  )
+  const demoSprings = useSprings(
+    demo.length,
+    demo.split('').map((_, index) => ({
+      delay: index * delay + software.length * delay,
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+    }))
+  )
   return (
     <Layout>
       <SEO
@@ -18,35 +55,36 @@ const About = ({ data: { profilePhoto, flagIt, skillIcons, toolIcons } }) => {
         path="about"
       />
       <div className={style.container}>
-        <div className={style.photo}>
+        <animated.div className={style.photo} style={springLeft}>
           <Img fluid={profilePhoto.childImageSharp.fluid} />
-        </div>
+        </animated.div>
         <div className={style.content}>
-          <h1>Hi, I'm Luigi!</h1>
-          <h2>Software Developer</h2>
-          <p>Per la versione italiana clicca qui
-            <div>
-              <a href={Utils.resolvePageUrl('../', 'it', 'about')}>
-                <Img fixed={flagIt.childImageSharp.fixed} />
-              </a>
-            </div>
-          </p>
+          <animated.h1 style={springRight}>Hi, I'm Chance!</animated.h1>
+          <animated.h2 style={springRight}>Software Developer</animated.h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            cursus venenatis arcu, cursus pretium enim lacinia nec. Duis viverra
-            sagittis neque. Fusce non luctus urna. Vivamus suscipit metus ac
-            posuere egestas. Nunc a pulvinar purus. Vivamus nisi mi, fringilla
-            quis lacus et, sagittis mollis massa. Cras tempus massa quis
-            lobortis laoreet. Pellentesque metus odio, sagittis nec venenatis
-            non, maximus congue eros. Suspendisse pellentesque purus sit amet
-            ante commodo, et molestie mauris aliquet. Proin non nibh libero.
-            Fusce at nulla euismod, condimentum augue quis, convallis justo.
+            {softwareSprings.map((animation, index) => (
+              <animated.span className="box" style={animation}>
+                {software[index]}
+              </animated.span>
+            ))}
           </p>
           <br />
-          <h2>Skills</h2>
+          <animated.h1 style={springRight} />
+
+          <animated.h2 style={springRight}>
+            Demolition Site Supervisor
+          </animated.h2>
+          <p>
+            {demoSprings.map((animation, index) => (
+              <animated.span className="box" style={animation}>
+                {demo[index]}
+              </animated.span>
+            ))}
+          </p>
+          <br />
+          <animated.h1 style={springRight} />
+          <animated.h2 style={springRight}>Skills</animated.h2>
           <ImageList edges={skillIcons.edges} />
-          <h2>Tools</h2>
-          <ImageList edges={toolIcons.edges} />
         </div>
       </div>
     </Layout>
@@ -113,13 +151,6 @@ export const query = graphql`
         }
       }
     }
-    flagIt: file(name: { eq: "flag-it" }) {
-      childImageSharp {
-        fixed(width: 50) {
-          ...GatsbyImageSharpFixed_tracedSVG
-        }
-      }
-    }
     skillIcons: allFile(filter: { dir: { regex: "/about/skills$/" } }) {
       edges {
         node {
@@ -150,10 +181,8 @@ export const query = graphql`
 const iconsNameMap = {
   css: 'CSS',
   html: 'HTML',
-  jquery: 'JQuery',
-  nodejs: 'Node.js',
-  vuejs: 'Vue.js',
-  gruntjs: 'Grunt.js',
+  zpostgresql: 'PostgreSQL',
+  lsass: 'Sass',
 }
 
 export default About

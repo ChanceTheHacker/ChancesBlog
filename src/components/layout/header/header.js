@@ -1,8 +1,9 @@
 /* Vendor imports */
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import { FaBars, FaTimes, FaGithub, FaLinkedin, FaRss } from 'react-icons/fa'
+import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
 /* App imports */
+import HackerIcon from '../../../images/hacker-icon'
 import style from './header.module.less'
 import Config from '../../../../config'
 import Utils from '../../../utils'
@@ -51,8 +52,9 @@ class Header extends Component {
 
   render = () => (
     <div
-      className={style.container}
+      className={`${style.container} theme-checker`}
       style={this.state.fixedHeader ? { backgroundImage: 'none' } : null}
+      theme="dark"
     >
       <div className={style.titleContainer}>
         <div className={style.title}>
@@ -85,13 +87,16 @@ class Header extends Component {
       >
         <ul>
           <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.home)}>Home</Link>
+            <Link to={Utils.resolvePageUrl(Config.pages.home)}>Blog</Link>
+          </li>
+          <li>
+            <Link to={Utils.resolvePageUrl(Config.pages.about)}>About</Link>
           </li>
           <li>
             <Link to={Utils.resolvePageUrl(Config.pages.tag)}>Tags</Link>
           </li>
           <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.about)}>About</Link>
+            <Link to={Utils.resolvePageUrl(Config.pages.fun)}>Fun</Link>
           </li>
         </ul>
         <ul>
@@ -114,9 +119,13 @@ class Header extends Component {
             </a>
           </li>
           <li>
-            <Link to={Utils.resolveUrl(Config.social.rss)}>
-              <FaRss size="30" />
-            </Link>
+            <a
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              href={Config.social.mySite}
+            >
+              <HackerIcon size="30" color="#92ddee" />
+            </a>
           </li>
         </ul>
       </div>

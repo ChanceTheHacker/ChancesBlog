@@ -9,13 +9,15 @@ import PostList from '../components/post-list'
 import ArchivePagination from '../components/archive-pagination'
 import Config from '../../config'
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="Home" description={Config.siteDescription} path="" />
-    <PostList posts={data.allMarkdownRemark.edges} />
-    <ArchivePagination nextPage={2} />
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  return (
+    <Layout>
+      <SEO title="Home" description={Config.siteDescription} path="" />
+      <PostList posts={data.allMarkdownRemark.edges} />
+      <ArchivePagination nextPage={2} />
+    </Layout>
+  )
+}
 
 IndexPage.propTypes = {
   data: PropTypes.shape({

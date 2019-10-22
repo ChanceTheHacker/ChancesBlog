@@ -112,7 +112,7 @@ SEO.propTypes = {
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
-    file(name: { eq: "facebook-logo" }) {
+    file(name: { eq: "icon" }) {
       childImageSharp {
         fixed(width: 500) {
           ...GatsbyImageSharpFixed_noBase64

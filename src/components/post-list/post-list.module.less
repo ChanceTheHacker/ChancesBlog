@@ -4,6 +4,7 @@
     .flex-center();
     justify-content: center;
     flex-direction: column;
+
     @media @mobile {
         flex-direction: column;
     }
@@ -16,11 +17,17 @@
     flex-direction: row;
     width: 100%;
     box-sizing: border-box;
+    transition: @transition-time background-color;
+    border-radius: 1rem;
+
     &:hover {
-        > div:first-child > a > div {
+        background-color: @transparent;
+
+        >div:first-child>a>div {
             transform: scale(1.1) !important
         }
     }
+
     @media @mobile {
         width: 100%;
         flex-direction: column;
@@ -33,9 +40,12 @@
     width: 40%;
     min-width: 40%;
     box-shadow: @box-shadow-cover;
-    & > a > div {
+    border-radius: 1rem;
+
+    &>a>div {
         transition: @transition-time transform;
     }
+
     @media @mobile {
         min-width: 100%;
         width: 100%;
@@ -45,13 +55,27 @@
 .content {
     .frame-small();
     text-align: center;
-    h2, p {
+
+
+
+    h2,
+    p {
         margin: @margin-small @margin-zero @margin-zero @margin-zero;
     }
+
     h2 {
         text-shadow: @text-shadow-title;
     }
+
     p {
         .frame-small();
+    }
+}
+
+.content h2,
+p {
+    &:hover {
+        transition: @transition-time;
+        color: @post-hover;
     }
 }

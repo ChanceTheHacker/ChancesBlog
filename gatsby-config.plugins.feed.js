@@ -1,5 +1,5 @@
-const config = require('./config');
-const utils = require('./src/utils');
+const config = require('./config')
+const utils = require('./src/utils')
 
 module.exports = {
   resolve: `gatsby-plugin-feed`,
@@ -17,9 +17,7 @@ module.exports = {
               guid: siteUrl + path + title,
               date: date,
               author: author,
-              custom_elements: [
-                { "content:encoded": node.html }
-              ],
+              custom_elements: [{ 'content:encoded': node.html }],
             })
           })
         },
@@ -43,8 +41,8 @@ module.exports = {
             }
           }
         `,
-        output: "/rss.xml",
-        title: "Luigi Colella RSS Feed",
+        output: '/rss.xml',
+        title: "Chance Peragine's RSS Feed",
       },
     ],
   },

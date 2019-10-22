@@ -3,6 +3,7 @@
 .container {
     .flex-center();
     .frame-medium();
+
     @media @mobile {
         flex-direction: column;
         padding: @padding-small @padding-zero;
@@ -15,31 +16,57 @@
     margin-right: auto;
     margin-bottom: auto;
     border: 1px solid @theme-title;
+    z-index: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+
     @media @mobile {
         width: 100%;
         margin: auto;
     }
 }
 
+.photoImg {
+    border-radius: 1rem;
+}
+
 .content {
     width: 70%;
     box-sizing: border-box;
-    h1, h2, p {
+
+    h1,
+    h2,
+    p {
         text-align: center;
     }
+
     h1 {
         border-bottom: 1px solid @theme-title;
         padding-bottom: @padding-small;
     }
+
     h2 {
         font-family: "CustomBoldFont", sans-serif;
     }
-    h2, p {
+
+    h2,
+    p {
         padding-left: @padding-medium;
     }
+
+    &:hover {
+
+        p {
+            color: @theme-text;
+        }
+    }
+
     @media @mobile {
         width: 100%;
-        h1, h2, p {
+
+        h1,
+        h2,
+        p {
             padding: @padding-small @padding-zero;
             text-align: center;
         }
@@ -56,9 +83,18 @@
     .label-2();
     justify-content: space-evenly;
     flex-basis: 20%;
+    border-radius: 1rem;
+
     label {
         padding-left: @padding-small;
     }
+
+    &:hover {
+        transition: @transition-time;
+        background-color: @theme-text;
+        color: @label-hover-text;
+    }
+
     @media @mobile {
         flex-basis: 30%;
     }

@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
+import { useTrail, animated } from 'react-spring'
 import Image from 'gatsby-image'
 /* App imports */
 import Layout from '../../components/layout'
@@ -19,6 +20,23 @@ const Tag = ({ data }) => {
     .sort() // Remove duplicates and sort values
   const tagPage = Config.pages.tag
 
+  const trail = useTrail(tags.length, {
+    from: {
+      opacity: 0,
+      transform: 'translate3d(0,300%,0)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translate3d(0,0,0)',
+    },
+    config: {
+      mass: 1,
+      friction: 15,
+      tension: 250,
+    },
+    delay: 300,
+  })
+
   return (
     <Layout title="Tags">
       <SEO
@@ -27,29 +45,32 @@ const Tag = ({ data }) => {
         path={tagPage}
       />
       <div>
-        {tags.map(tag => (
-          <Link
-            to={Utils.resolvePageUrl(tagPage, tag)}
-            className={style.card}
-            key={tag}
-          >
-            <div className={style.cover}>
-              <Image
-                fluid={
-                  data.allFile.edges.find(edge => edge.node.name === tag).node
-                    .childImageSharp.fluid
-                }
-              />
-            </div>
-            <div className={style.content}>
-              <h2>{Config.tags[tag].name || Utils.capitalize(tag)}</h2>
-              <p>{Config.tags[tag].description}</p>
-              <label>{`${
-                rawTags.filter(sTag => sTag === tag).length
-              } Posts`}</label>
-            </div>
-          </Link>
-        ))}
+        {trail.map((animation, index) => {
+          const tag = tags[index]
+          return (
+            <Link
+              to={Utils.resolvePageUrl(tagPage, tag)}
+              className={style.card}
+              key={tag}
+            >
+              <animated.div className={style.cover} style={animation}>
+                <Image
+                  fluid={
+                    data.allFile.edges.find(edge => edge.node.name === tag).node
+                      .childImageSharp.fluid
+                  }
+                />
+              </animated.div>
+              <animated.div className={style.content} style={animation}>
+                <h2>{Config.tags[tag].name || Utils.capitalize(tag)}</h2>
+                <p>{Config.tags[tag].description}</p>
+                <label>{`${
+                  rawTags.filter(sTag => sTag === tag).length
+                } Posts`}</label>
+              </animated.div>
+            </Link>
+          )
+        })}
       </div>
     </Layout>
   )

@@ -8,9 +8,12 @@
     flex-wrap: nowrap;
     height: auto;
     transition: @transition-time background-color;
+    border-radius: 1rem;
+
     &:hover {
-        background-color: @color-transparent-darker;
+        background-color: @transparent;
     }
+
     @media @mobile {
         margin: @margin-zero;
     }
@@ -21,9 +24,11 @@
     @width: 10%;
     min-width: @width;
     margin-right: @margin-medium * 2;
+
     @media @mobile {
         min-width: @width * 2.5;
     }
+
     @media @tablet {
         min-width: @width * 1.7;
     }
@@ -33,9 +38,16 @@
     h2 {
         font-family: "CustomBoldFont", sans-serif;
     }
-    h2, p {
+
+    h2,
+    p {
         margin-top: @margin-zero;
         margin-bottom: @margin-small;
         text-align: left;
+
+        &:hover {
+            transition: @transition-time;
+            color: @post-hover;
+        }
     }
 }

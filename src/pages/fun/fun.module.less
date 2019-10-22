@@ -1,0 +1,121 @@
+@import (reference) '../../style/index.less';
+
+.container {}
+
+.container {
+  .flex-center();
+  .frame-medium();
+  background: transparent;
+  user-select: none;
+  cursor: default;
+  height: 76vh;
+
+
+  @media @mobile {
+    flex-direction: column;
+    padding: @padding-small @padding-zero;
+  }
+
+  h1 {
+    position: absolute;
+    width: 100%;
+    padding: auto;
+  }
+}
+
+.hooks-main>svg {
+  display: none;
+}
+
+.hooks-main>div {
+  position: absolute;
+  will-change: transform;
+  border-radius: 50%;
+  background: @glob;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  opacity: 0.6;
+}
+
+.hooks-main>div:nth-child(1) {
+  width: 120px;
+  height: 120px;
+}
+
+.hooks-main>div:nth-child(2) {
+  width: 250px;
+  height: 250px;
+}
+
+.hooks-main>div:nth-child(3) {
+  width: 150px;
+  height: 150px;
+}
+
+.hooks-main>div:nth-child(5) {
+  width: 300px;
+  height: 300px;
+}
+
+.hooks-main>div:nth-child(6) {
+  width: 75px;
+  height: 75px;
+}
+
+.hooks-main>div:nth-child(4) {
+  width: 115px;
+  height: 115px;
+}
+
+.hooks-main>div::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.hooks-main>div:nth-child(2)::after {
+  top: 70px;
+  left: 70px;
+  width: 70px;
+  height: 70px;
+}
+
+.hooks-main>div:nth-child(3)::after {
+  top: 50px;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.hooks-main>div:nth-child(5)::after {
+  top: 80px;
+  left: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.hooks-main>div:nth-child(6)::after {
+  top: 30px;
+  left: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.hooks-main>div:nth-child(4)::after {
+  top: 40px;
+  left: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.hooks-main {
+  position: absolute;
+  width: 98%;
+  height: 85%;
+  filter: url('#goo');
+  overflow: hidden;
+}
