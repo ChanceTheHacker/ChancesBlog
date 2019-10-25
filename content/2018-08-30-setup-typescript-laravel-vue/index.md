@@ -1,5 +1,5 @@
 ---
-title: How to setup TypeScript with Laravel and Vue
+title: SAMPLE BLOG - Real blog posts currently in progress...  How to setup TypeScript with Laravel and Vue
 date: 2018-11-12
 tags: [laravel, vuejs, typescript, javascript, nodejs]
 path: blog/setup-typescript-with-laravel-and-vue

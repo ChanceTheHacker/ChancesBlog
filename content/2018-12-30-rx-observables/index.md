@@ -1,5 +1,5 @@
 ---
-title: What are and how to use Observables in RxJS
+title: SAMPLE BLOG - Real blog posts currently in progress...  What are and how to use Observables in RxJS
 tags: [typescript, javascript, rxjs]
 date: 2018-12-30T05:25:44.226Z
 path: blog/top-7-rxjs-patterns
@@ -9,49 +9,55 @@ excerpt: Learn all that you need to know about Observables.
 
 Observables are lazy Push collections of multiple values. They fill the missing spot in the following table:
 
-| | Single | Multiple |
-| --- | --- | --- |
-| **Pull** | [`Function`](https://developer.mozilla.org/en-US/docs/Glossary/Function) | [`Iterator`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) |
-| **Push** | [`Promise`](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise) | [`Observable`](../class/es6/Observable.js~Observable.html) |
+|          | Single                                                                                                    | Multiple                                                                                            |
+| -------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Pull** | [`Function`](https://developer.mozilla.org/en-US/docs/Glossary/Function)                                  | [`Iterator`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) |
+| **Push** | [`Promise`](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise) | [`Observable`](../class/es6/Observable.js~Observable.html)                                          |
 
 **Example.** The following is an Observable that pushes the values `1`, `2`, `3` immediately (synchronously) when subscribed, and the value `4` after one second has passed since the subscribe call, then completes:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const observable = new Observable(subscriber => {
-  subscriber.next(1);
-  subscriber.next(2);
-  subscriber.next(3);
+  subscriber.next(1)
+  subscriber.next(2)
+  subscriber.next(3)
   setTimeout(() => {
-    subscriber.next(4);
-    subscriber.complete();
-  }, 1000);
-});
+    subscriber.next(4)
+    subscriber.complete()
+  }, 1000)
+})
 ```
 
-To invoke the Observable and see these values, we need to *subscribe* to it:
+To invoke the Observable and see these values, we need to _subscribe_ to it:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const observable = new Observable(subscriber => {
-  subscriber.next(1);
-  subscriber.next(2);
-  subscriber.next(3);
+  subscriber.next(1)
+  subscriber.next(2)
+  subscriber.next(3)
   setTimeout(() => {
-    subscriber.next(4);
-    subscriber.complete();
-  }, 1000);
-});
+    subscriber.next(4)
+    subscriber.complete()
+  }, 1000)
+})
 
-console.log('just before subscribe');
+console.log('just before subscribe')
 observable.subscribe({
-  next(x) { console.log('got value ' + x); },
-  error(err) { console.error('something wrong occurred: ' + err); },
-  complete() { console.log('done'); },
-});
-console.log('just after subscribe');
+  next(x) {
+    console.log('got value ' + x)
+  },
+  error(err) {
+    console.error('something wrong occurred: ' + err)
+  },
+  complete() {
+    console.log('done')
+  },
+})
+console.log('just after subscribe')
 ```
 
 Which executes as such on the console:
@@ -68,19 +74,18 @@ done
 
 ## Pull versus Push
 
-*Pull* and *Push* are two different protocols that describe how a data *Producer* can communicate with a data *Consumer*.
+_Pull_ and _Push_ are two different protocols that describe how a data _Producer_ can communicate with a data _Consumer_.
 
 **What is Pull?** In Pull systems, the Consumer determines when it receives data from the data Producer. The Producer itself is unaware of when the data will be delivered to the Consumer.
 
-> Every JavaScript Function is a Pull system. The function is a Producer of data, and the code that calls the function is consuming it by "pulling" out a *single* return value from its call.
+> Every JavaScript Function is a Pull system. The function is a Producer of data, and the code that calls the function is consuming it by "pulling" out a _single_ return value from its call.
 
-ES2015 introduced [generator functions and iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) (`function*`), another type of Pull system. Code that calls `iterator.next()` is the Consumer, "pulling" out *multiple* values from the iterator (the Producer).
+ES2015 introduced [generator functions and iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) (`function*`), another type of Pull system. Code that calls `iterator.next()` is the Consumer, "pulling" out _multiple_ values from the iterator (the Producer).
 
-
-| | Producer | Consumer |
-| --- | --- | --- |
+|          | Producer                                   | Consumer                                    |
+| -------- | ------------------------------------------ | ------------------------------------------- |
 | **Pull** | **Passive:** produces data when requested. | **Active:** decides when data is requested. |
-| **Push** | **Active:** produces data at its own pace. | **Passive:** reacts to received data. |
+| **Push** | **Active:** produces data at its own pace. | **Passive:** reacts to received data.       |
 
 **What is Push?** In Push systems, the Producer determines when to send data to the Consumer. The Consumer is unaware of when it will receive that data.
 
@@ -95,7 +100,7 @@ RxJS introduces Observables, a new Push system for JavaScript. An Observable is 
 
 ## Observables as generalizations of functions
 
-Contrary to popular claims, Observables are not like EventEmitters nor are they like Promises for multiple values. Observables *may act* like EventEmitters in some cases, namely when they are multicasted using RxJS Subjects, but usually they don't act like EventEmitters.
+Contrary to popular claims, Observables are not like EventEmitters nor are they like Promises for multiple values. Observables _may act_ like EventEmitters in some cases, namely when they are multicasted using RxJS Subjects, but usually they don't act like EventEmitters.
 
 <span class="informal">Observables are like functions with zero arguments, but generalize those to allow multiple values.</span>
 
@@ -103,14 +108,14 @@ Consider the following:
 
 ```typescript
 function foo() {
-  console.log('Hello');
-  return 42;
+  console.log('Hello')
+  return 42
 }
 
-const x = foo.call(); // same as foo()
-console.log(x);
-const y = foo.call(); // same as foo()
-console.log(y);
+const x = foo.call() // same as foo()
+console.log(x)
+const y = foo.call() // same as foo()
+console.log(y)
 ```
 
 We expect to see as output:
@@ -125,19 +130,19 @@ We expect to see as output:
 You can write the same behavior above, but with Observables:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const foo = new Observable(subscriber => {
-  console.log('Hello');
-  subscriber.next(42);
-});
+  console.log('Hello')
+  subscriber.next(42)
+})
 
 foo.subscribe(x => {
-  console.log(x);
-});
-foo.subscribe(function (y) {
-  console.log(y);
-});
+  console.log(x)
+})
+foo.subscribe(function(y) {
+  console.log(y)
+})
 ```
 
 And the output is the same:
@@ -156,9 +161,9 @@ This happens because both functions and Observables are lazy computations. If yo
 Some people claim that Observables are asynchronous. That is not true. If you surround a function call with logs, like this:
 
 ```typescript
-console.log('before');
-console.log(foo.call());
-console.log('after');
+console.log('before')
+console.log(foo.call())
+console.log('after')
 ```
 
 You will see the output:
@@ -173,11 +178,11 @@ You will see the output:
 And this is the same behavior with Observables:
 
 ```typescript
-console.log('before');
+console.log('before')
 foo.subscribe(x => {
-  console.log(x);
-});
-console.log('after');
+  console.log(x)
+})
+console.log('after')
 ```
 
 And the output is:
@@ -197,29 +202,29 @@ What is the difference between an Observable and a function? **Observables can "
 
 ```typescript
 function foo() {
-  console.log('Hello');
-  return 42;
-  return 100; // dead code. will never happen
+  console.log('Hello')
+  return 42
+  return 100 // dead code. will never happen
 }
 ```
 
 Functions can only return one value. Observables, however, can do this:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const foo = new Observable(subscriber => {
-  console.log('Hello');
-  subscriber.next(42);
-  subscriber.next(100); // "return" another value
-  subscriber.next(200); // "return" yet another
-});
+  console.log('Hello')
+  subscriber.next(42)
+  subscriber.next(100) // "return" another value
+  subscriber.next(200) // "return" yet another
+})
 
-console.log('before');
+console.log('before')
 foo.subscribe(x => {
-  console.log(x);
-});
-console.log('after');
+  console.log(x)
+})
+console.log('after')
 ```
 
 With synchronous output:
@@ -236,23 +241,23 @@ With synchronous output:
 But you can also "return" values asynchronously:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const foo = new Observable(subscriber => {
-  console.log('Hello');
-  subscriber.next(42);
-  subscriber.next(100);
-  subscriber.next(200);
+  console.log('Hello')
+  subscriber.next(42)
+  subscriber.next(100)
+  subscriber.next(200)
   setTimeout(() => {
-    subscriber.next(300); // happens asynchronously
-  }, 1000);
-});
+    subscriber.next(300) // happens asynchronously
+  }, 1000)
+})
 
-console.log('before');
+console.log('before')
 foo.subscribe(x => {
-  console.log(x);
-});
-console.log('after');
+  console.log(x)
+})
+console.log('after')
 ```
 
 With output:
@@ -269,14 +274,15 @@ With output:
 
 Conclusion:
 
-- `func.call()` means "*give me one value synchronously*"
-- `observable.subscribe()` means "*give me any amount of values, either synchronously or asynchronously*"
+- `func.call()` means "_give me one value synchronously_"
+- `observable.subscribe()` means "_give me any amount of values, either synchronously or asynchronously_"
 
 ## Anatomy of an Observable
 
 Observables are **created** using `new Observable` or a creation operator, are **subscribed** to with an Observer, **execute** to deliver `next` / `error` / `complete` notifications to the Observer, and their execution may be **disposed**. These four aspects are all encoded in an Observable instance, but some of these aspects are related to other types, like Observer and Subscription.
 
 Core Observable concerns:
+
 - **Creating** Observables
 - **Subscribing** to Observables
 - **Executing** the Observable
@@ -289,13 +295,13 @@ The `Observable` constructor takes one argument: the `subscribe` function.
 The following example creates an Observable to emit the string `'hi'` every second to a subscriber.
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const observable = new Observable(function subscribe(subscriber) {
   const id = setInterval(() => {
     subscriber.next('hi')
-  }, 1000);
-});
+  }, 1000)
+})
 ```
 
 <span class="informal">Observables can be created with `new Observable`. Most commonly, observables are created using creation functions, like `of`, `from`, `interval`, etc.</span>
@@ -304,10 +310,10 @@ In the example above, the `subscribe` function is the most important piece to de
 
 ### Subscribing to Observables
 
-The Observable `observable` in the example can be *subscribed* to, like this:
+The Observable `observable` in the example can be _subscribed_ to, like this:
 
 ```typescript
-observable.subscribe(x => console.log(x));
+observable.subscribe(x => console.log(x))
 ```
 
 It is not a coincidence that `observable.subscribe` and `subscribe` in `new Observable(function subscribe(subscriber) {...})` have the same name. In the library, they are different, but for practical purposes you can consider them conceptually equal.
@@ -332,7 +338,7 @@ There are three types of values an Observable Execution can deliver:
 
 "Next" notifications are the most important and most common type: they represent actual data being delivered to an subscriber. Error and Complete notifications may happen only once during the Observable Execution, and there can only be either one of them.
 
-These constraints are expressed best in the so-called *Observable Grammar* or *Contract*, written as a regular expression:
+These constraints are expressed best in the so-called _Observable Grammar_ or _Contract_, written as a regular expression:
 
 ```none
 next*(error|complete)?
@@ -343,45 +349,45 @@ next*(error|complete)?
 The following is an example of an Observable execution that delivers three Next notifications, then completes:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const observable = new Observable(function subscribe(subscriber) {
-  subscriber.next(1);
-  subscriber.next(2);
-  subscriber.next(3);
-  subscriber.complete();
-});
+  subscriber.next(1)
+  subscriber.next(2)
+  subscriber.next(3)
+  subscriber.complete()
+})
 ```
 
 Observables strictly adhere to the Observable Contract, so the following code would not deliver the Next notification `4`:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const observable = new Observable(function subscribe(subscriber) {
-  subscriber.next(1);
-  subscriber.next(2);
-  subscriber.next(3);
-  subscriber.complete();
-  subscriber.next(4); // Is not delivered because it would violate the contract
-});
+  subscriber.next(1)
+  subscriber.next(2)
+  subscriber.next(3)
+  subscriber.complete()
+  subscriber.next(4) // Is not delivered because it would violate the contract
+})
 ```
 
 It is a good idea to wrap any code in `subscribe` with `try`/`catch` block that will deliver an Error notification if it catches an exception:
 
 ```typescript
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'
 
 const observable = new Observable(function subscribe(subscriber) {
   try {
-    subscriber.next(1);
-    subscriber.next(2);
-    subscriber.next(3);
-    subscriber.complete();
+    subscriber.next(1)
+    subscriber.next(2)
+    subscriber.next(3)
+    subscriber.complete()
   } catch (err) {
-    subscriber.error(err); // delivers an error if it caught one
+    subscriber.error(err) // delivers an error if it caught one
   }
-});
+})
 ```
 
 ### Disposing Observable Executions
@@ -391,18 +397,18 @@ Because Observable Executions may be infinite, and it's common for an Observer t
 When `observable.subscribe` is called, the Observer gets attached to the newly created Observable execution. This call also returns an object, the `Subscription`:
 
 ```typescript
-const subscription = observable.subscribe(x => console.log(x));
+const subscription = observable.subscribe(x => console.log(x))
 ```
 
 The Subscription represents the ongoing execution, and has a minimal API which allows you to cancel that execution. Read more about the [`Subscription` type here](./subscription). With `subscription.unsubscribe()` you can cancel the ongoing execution:
 
 ```typescript
-import { Observable, from } from 'rxjs';
+import { Observable, from } from 'rxjs'
 
-const observable = from([10, 20, 30]);
-const subscription = observable.subscribe(x => console.log(x));
+const observable = from([10, 20, 30])
+const subscription = observable.subscribe(x => console.log(x))
 // Later:
-subscription.unsubscribe();
+subscription.unsubscribe()
 ```
 
 <span class="informal">When you subscribe, you get back a Subscription, which represents the ongoing execution. Just call `unsubscribe()` to cancel the execution.</span>
@@ -415,14 +421,14 @@ For instance, this is how we clear an interval execution set with `setInterval`:
 const observable = new Observable(function subscribe(subscriber) {
   // Keep track of the interval resource
   const intervalId = setInterval(() => {
-    subscriber.next('hi');
-  }, 1000);
+    subscriber.next('hi')
+  }, 1000)
 
   // Provide a way of canceling and disposing the interval resource
   return function unsubscribe() {
-    clearInterval(intervalId);
-  };
-});
+    clearInterval(intervalId)
+  }
+})
 ```
 
 Just like `observable.subscribe` resembles `new Observable(function subscribe() {...})`, the `unsubscribe` we return from `subscribe` is conceptually equal to `subscription.unsubscribe`. In fact, if we remove the ReactiveX types surrounding these concepts, we're left with rather straightforward JavaScript.
@@ -430,18 +436,18 @@ Just like `observable.subscribe` resembles `new Observable(function subscribe() 
 ```typescript
 function subscribe(subscriber) {
   const intervalId = setInterval(() => {
-    subscriber.next('hi');
-  }, 1000);
+    subscriber.next('hi')
+  }, 1000)
 
   return function unsubscribe() {
-    clearInterval(intervalId);
-  };
+    clearInterval(intervalId)
+  }
 }
 
-const unsubscribe = subscribe({next: (x) => console.log(x)});
+const unsubscribe = subscribe({ next: x => console.log(x) })
 
 // Later:
-unsubscribe(); // dispose the resources
+unsubscribe() // dispose the resources
 ```
 
 The reason why we use Rx types like Observable, Observer, and Subscription is to get safety (such as the Observable Contract) and composability with Operators.
