@@ -7,8 +7,6 @@ module.exports = {
   postsForArchivePage: 3,
   defaultLanguage: 'en',
   disqusScript: 'https://chanceblog.disqus.com/embed.js',
-  email: 'chance@chancethehacker.com',
-  twitter: 'https://twitter.com/chance_hacker',
   pages: {
     home: '/',
     blog: 'blog',
@@ -22,6 +20,8 @@ module.exports = {
     github: 'https://github.com/wcperagine',
     linkedin: 'https://www.linkedin.com/in/william-peragine',
     mySite: 'mailto:chance@chancethehacker.com',
+    email: 'chance@chancethehacker.com',
+    twitter: 'https://twitter.com/chance_hacker',
   },
   tags: {
     angular: {

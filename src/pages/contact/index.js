@@ -57,7 +57,7 @@ const Contact = ({ data: { profilePhoto, skillIcons } }) => {
               href="https://www.twitter.com/chance_hacker"
               target="_blank"
             >
-              ChanceTheHacker
+              Chance_Hacker@Twitter
             </a>
           </h3>
         </animated.div>
@@ -71,11 +71,6 @@ Contact.propTypes = {
     profilePhoto: PropTypes.shape({
       childImageSharp: PropTypes.shape({
         fluid: PropTypes.object.isRequired,
-      }).isRequired,
-    }).isRequired,
-    flagIt: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fixed: PropTypes.object.isRequired,
       }).isRequired,
     }).isRequired,
     skillIcons: PropTypes.object.isRequired,

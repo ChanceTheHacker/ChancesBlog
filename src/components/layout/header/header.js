@@ -1,7 +1,13 @@
 /* Vendor imports */
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa'
+import {
+  FaBars,
+  FaTimes,
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+} from 'react-icons/fa'
 /* App imports */
 import HackerIcon from '../../../images/hacker-icon'
 import style from './header.module.less'
@@ -119,6 +125,15 @@ class Header extends Component {
               href={Config.social.linkedin}
             >
               <FaLinkedin size="30" />
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              href={Config.social.twitter}
+            >
+              <FaTwitter size="30" />
             </a>
           </li>
           <li>
