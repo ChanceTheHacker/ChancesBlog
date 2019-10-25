@@ -2,23 +2,26 @@ module.exports = {
   pathPrefix: '/gatsby-starter-developer-blog',
   siteUrl: 'https://www.chancethehacker.com',
   siteTitle: 'Chance Peragine',
-  siteDescription: 'Software Developer & Demolition Expert',
+  siteDescription: 'Freelance Developer & Demolition Expert',
   author: 'Chance',
   postsForArchivePage: 3,
   defaultLanguage: 'en',
   disqusScript: 'https://chanceblog.disqus.com/embed.js',
+  email: 'chance@chancethehacker.com',
+  twitter: 'https://twitter.com/chance_hacker',
   pages: {
     home: '/',
     blog: 'blog',
     about: 'about',
     tag: 'tag',
     fun: 'fun',
+    contact: 'contact',
     archive: 'archive',
   },
   social: {
     github: 'https://github.com/wcperagine',
     linkedin: 'https://www.linkedin.com/in/william-peragine',
-    mySite: 'https://www.chancethehacker.com',
+    mySite: 'mailto:chance@chancethehacker.com',
   },
   tags: {
     angular: {
@@ -61,6 +64,10 @@ module.exports = {
       name: 'Vue.js',
       description:
         'Vue.js is a JavaScript framework for building interactive web applications.',
+    },
+    softskills: {
+      name: 'Soft Skills',
+      description: 'Skills so soft',
     },
   },
 }
