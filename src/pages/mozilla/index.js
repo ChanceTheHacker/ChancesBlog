@@ -57,15 +57,15 @@ const Mozilla = ({ data: {} }) => {
       />
       <div className={style.container}>
         <animated.div className={style.content} style={springLeft}>
-          <h1>Email Mozilla</h1>
+          <h1>Tweet Mozilla</h1>
           <h3>
             <a
               className={style.link}
-              href="mailto:info@firefoxhelp.us?subject=Please Fix Slow Animations&body=Hello, I am E-mailing you because I absolutely love firefox browser, but the animations are so slow it makes it hard for me to use. Please try to speed them up, as users we care about both privacy and sparkly animations!"
+              href="http://twitter.com/intent/tweet?text=I%20love%20%20@firefox%20%20because%20of%20it's%20privacy%2C%20but%20the%20animations%20are%20so%20slow.%20%20@mozilla%20%20as%20users%2C%20we%20want%20privacy%20and%20awesome%20animations!"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Prefilled E-mail, just click send
+              Prefilled Tweet with mozilla and firefox tagged!
             </a>
           </h3>
         </animated.div>
