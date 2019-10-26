@@ -20,7 +20,7 @@ module.exports = {
   social: {
     github: 'https://github.com/wcperagine',
     linkedin: 'https://www.linkedin.com/in/william-peragine',
-    mySite: 'www.chancethehacker.com',
+    mySite: 'https://www.chancethehacker.com',
     myEmail: 'mailto:chance@chancethehacker.com',
     twitter: 'https://twitter.com/chance_hacker',
   },
