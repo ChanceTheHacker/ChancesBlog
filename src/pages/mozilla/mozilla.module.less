@@ -1,0 +1,49 @@
+@import (reference) '../../style/index.less';
+
+.container {
+  .flex-center();
+  .frame-medium();
+  align-content: space-around;
+
+  min-height: 60vh;
+
+  @media @mobile {
+    flex-direction: column;
+    padding: @padding-small @padding-zero;
+  }
+}
+
+.content {
+  width: 100%;
+  box-sizing: border-box;
+
+  h1,
+  h2,
+  p {
+    text-align: center;
+  }
+
+  h1 {
+    border-bottom: 1px solid @theme-title;
+    padding-bottom: @padding-small;
+  }
+
+  h2 {
+    font-family: "CustomBoldFont", sans-serif;
+  }
+
+  h2,
+  p {
+    padding-left: @padding-medium;
+  }
+
+}
+
+.link {
+  color: @theme-text;
+
+  &:hover {
+
+    color: @theme-title;
+  }
+}

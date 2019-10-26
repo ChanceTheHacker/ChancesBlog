@@ -3,18 +3,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { useSpring, animated, useSprings } from 'react-spring'
-import { Waypoint } from 'react-waypoint'
+import { useSpring, animated } from 'react-spring'
 /* App imports */
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
+import Comments from '../../templates/post/comments/comments'
 import Utils from '../../utils'
-import * as style from './index.module.less'
-import software from '../../components/about-info/software-blurb'
-import demo from '../../components/about-info/demo-blurb'
+import Config from '../../../config'
+import * as style from './mozilla.module.less'
 
-const About = ({ data: { profilePhoto, skillIcons } }) => {
-  const delay = 2
+const Mozilla = ({ data: {} }) => {
+  const title = 'mozilla'
+  const path = '/mozilla'
+  const canonicalUrl = Utils.resolvePageUrl(
+    Config.siteUrl,
+    Config.pathPrefix,
+    path
+  )
   const springLeft = useSpring({
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
     from: { opacity: 0, transform: 'translate3d(-100%, 0, 0)' },
@@ -22,6 +27,7 @@ const About = ({ data: { profilePhoto, skillIcons } }) => {
       friction: 15,
       tension: 250,
     },
+    delay: 300,
   })
   const springRight = useSpring({
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
@@ -30,101 +36,68 @@ const About = ({ data: { profilePhoto, skillIcons } }) => {
       friction: 15,
       tension: 250,
     },
+    delay: 600,
   })
-  const softwareSprings = useSprings(
-    software.length,
-    software.split('').map((_, index) => ({
-      delay: index * delay,
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-    }))
-  )
-  const demoSprings = useSprings(
-    demo.length,
-    demo.split('').map((_, index) => ({
-      delay: index * delay + software.length * delay,
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-    }))
-  )
+  const springBottom = useSpring({
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    from: { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
+    config: {
+      friction: 15,
+      tension: 250,
+    },
+    delay: 900,
+  })
+
   return (
-    <Layout>
+    <Layout title="Let's fix Firefox!">
       <SEO
-        title="About"
+        title="Mozilla"
         description="A brief summary of this blog and my work"
-        path="about"
+        path="mozilla"
       />
       <div className={style.container}>
-        <animated.div className={style.photo} style={springLeft}>
-          <Img fluid={profilePhoto.childImageSharp.fluid} />
+        <animated.div className={style.content} style={springLeft}>
+          <h1>Email Mozilla</h1>
+          <h3>
+            <a
+              className={style.link}
+              href="mailto:info@firefoxhelp.us?subject=Please Fix Slow Animations&body=Hello, I am E-mailing you because I absolutely love firefox browser, but the animations are so slow it makes it hard for me to use. Please try to speed them up, as users we care about both privacy and sparkly animations!"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prefilled E-mail, just click send
+            </a>
+          </h3>
         </animated.div>
-        <div className={style.content}>
-          <animated.h1 style={springRight}>Hi, I'm Chance!</animated.h1>
-          <animated.h2 style={springRight}>Contact Me</animated.h2>
-          <p className={style.label}>
-            Email me:{' '}
+        <animated.div className={style.content} style={springRight}>
+          <h1>Firefox Satisfaction Survey</h1>
+          <h3>
             <a
               className={style.link}
-              href="mailto:chance@chancethehacker.com"
+              href="https://qsurvey.mozilla.com/s3/FirefoxInput/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Chance The Hacker
+              Take a very short survey
             </a>
-          </p>
-          <p className={style.label}>
-            Tweet me:{' '}
-            <a
-              className={style.link}
-              href="https://twitter.com/chance_Hacker"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Chance_Hacker@Twitter
-            </a>
-          </p>
-          <h1 />
-          <animated.h2 style={springRight}>Freelance Web Dev</animated.h2>
-          <p>
-            {softwareSprings.map((animation, index) => (
-              <animated.span className="box" style={animation}>
-                {software[index]}
-              </animated.span>
-            ))}
-          </p>
-          <br />
-          <animated.h1 style={springRight} />
-
-          <animated.h2 style={springRight}>
-            Demolition Site Supervisor
-          </animated.h2>
-          <p>
-            {demoSprings.map((animation, index) => (
-              <animated.span className="box" style={animation}>
-                {demo[index]}
-              </animated.span>
-            ))}
-          </p>
-          <br />
-          <animated.h1 style={springRight} />
-          <animated.h2 style={springRight}>Skills</animated.h2>
-          <ImageList edges={skillIcons.edges} />
-        </div>
+          </h3>
+        </animated.div>
       </div>
+      <animated.div className={style.content} style={springBottom}>
+        <h1>Share your opinion</h1>
+        <div>
+          <Comments pageCanonicalUrl={canonicalUrl} pageId={title} />
+        </div>
+      </animated.div>
     </Layout>
   )
 }
 
-About.propTypes = {
+Mozilla.propTypes = {
   data: PropTypes.shape({
     profilePhoto: PropTypes.shape({
       childImageSharp: PropTypes.shape({
         fluid: PropTypes.object.isRequired,
-      }).isRequired,
-    }).isRequired,
-    flagIt: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fixed: PropTypes.object.isRequired,
       }).isRequired,
     }).isRequired,
     skillIcons: PropTypes.object.isRequired,
@@ -175,7 +148,7 @@ export const query = graphql`
         }
       }
     }
-    skillIcons: allFile(filter: { dir: { regex: "/about/skills$/" } }) {
+    skillIcons: allFile(filter: { dir: { regex: "/Mozilla/skills$/" } }) {
       edges {
         node {
           name
@@ -187,7 +160,7 @@ export const query = graphql`
         }
       }
     }
-    toolIcons: allFile(filter: { dir: { regex: "/about/tools$/" } }) {
+    toolIcons: allFile(filter: { dir: { regex: "/Mozilla/tools$/" } }) {
       edges {
         node {
           name
@@ -209,4 +182,4 @@ const iconsNameMap = {
   lsass: 'Sass',
 }
 
-export default About
+export default Mozilla

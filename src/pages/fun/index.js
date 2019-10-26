@@ -42,8 +42,8 @@ const Fun = ({}) => {
       />
       <div className={style.container}>
         <animated.h1 style={spring}>
-          This awesome little glob was adapted from the examples section at
-          react-spring.io
+          If you're using Firefox, this animation runs slowly. Visit the Firefox
+          tab to help change that!
         </animated.h1>
         <svg style={{ position: 'absolute', width: 0, height: 0 }}>
           <filter id="goo">

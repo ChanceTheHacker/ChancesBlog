@@ -15,12 +15,13 @@ module.exports = {
     fun: 'fun',
     contact: 'contact',
     archive: 'archive',
+    mozilla: 'mozilla',
   },
   social: {
     github: 'https://github.com/wcperagine',
     linkedin: 'https://www.linkedin.com/in/william-peragine',
-    mySite: 'mailto:chance@chancethehacker.com',
-    email: 'chance@chancethehacker.com',
+    mySite: 'www.chancethehacker.com',
+    myEmail: 'mailto:chance@chancethehacker.com',
     twitter: 'https://twitter.com/chance_hacker',
   },
   tags: {

@@ -7,6 +7,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaTwitter,
+  FaEnvelope,
 } from 'react-icons/fa'
 /* App imports */
 import HackerIcon from '../../../images/hacker-icon'
@@ -96,10 +97,10 @@ class Header extends Component {
             <Link to={Utils.resolvePageUrl(Config.pages.home)}>Blog</Link>
           </li>
           <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.contact)}>Contact</Link>
+            <Link to={Utils.resolvePageUrl(Config.pages.mozilla)}>Firefox</Link>
           </li>
           <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.about)}>About</Link>
+            <Link to={Utils.resolvePageUrl(Config.pages.about)}>Me</Link>
           </li>
           <li>
             <Link to={Utils.resolvePageUrl(Config.pages.tag)}>Tags</Link>
@@ -140,9 +141,18 @@ class Header extends Component {
             <a
               target="_blank"
               rel="nofollow noopener noreferrer"
+              href={Config.social.myEmail}
+            >
+              <FaEnvelope size="30" />
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="nofollow noopener noreferrer"
               href={Config.social.mySite}
             >
-              <HackerIcon size="30" color="#92ddee" />
+              <HackerIcon size="30" />
             </a>
           </li>
         </ul>
