@@ -55,6 +55,7 @@ const Tag = ({ data }) => {
             >
               <animated.div className={style.cover} style={animation}>
                 <Image
+                  className={style.img}
                   fluid={
                     data.allFile.edges.find(edge => edge.node.name === tag).node
                       .childImageSharp.fluid

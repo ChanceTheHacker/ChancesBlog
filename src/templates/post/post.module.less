@@ -2,6 +2,7 @@
 
 .container {
     margin: auto;
+
     @media @desktop {
         width: 90%;
     }
@@ -13,7 +14,21 @@
     color: @post-text;
     box-sizing: border-box;
     padding: @padding-medium;
+
     @media @desktop {
-        padding:  @padding-medium * 2 @padding-medium * 4;
+        padding: @padding-medium * 2 @padding-medium * 4;
+    }
+
+    p {
+        color: @theme-text;
+    }
+
+    a {
+        color: @theme-title;
+        transition-duration: @transition-time;
+
+        &:hover {
+            color: @header-hover;
+        }
     }
 }

@@ -68,7 +68,17 @@ module.exports = {
     },
     softskills: {
       name: 'Soft Skills',
-      description: 'Skills so soft',
+      description:
+        'These are your people skills, and have to do with communication, leadership etc.',
+    },
+    svg: {
+      name: 'SVG',
+      description: 'SVG images aka Scalable Vector Graphics',
+    },
+    beginner: {
+      name: 'Beginner',
+      description:
+        'Meant for people who are somewhat familiar or not at all familiar with the topic',
     },
   },
 }
