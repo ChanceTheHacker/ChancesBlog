@@ -7,6 +7,12 @@ module.exports = [
   'gatsby-plugin-sharp',
   'gatsby-plugin-less',
   {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: 'UA-151038996-1',
+    },
+  },
+  {
     resolve: `gatsby-plugin-styled-components`,
     options: {},
   },
