@@ -34,6 +34,7 @@
 .content {
     width: 70%;
     box-sizing: border-box;
+    transition-duration: @transition-time;
 
     h1,
     h2,
@@ -53,11 +54,13 @@
     h2,
     p {
         padding-left: @padding-medium;
+        transition-duration: @transition-time;
     }
 
-    &:hover {
+    p {
+        &:hover {
 
-        p {
+
             color: @theme-text;
         }
     }
@@ -92,7 +95,7 @@
 
     &:hover {
         transition: @transition-time;
-        background-color: @theme-text;
+        background-color: @text-hover;
         color: @label-hover-text;
     }
 
@@ -103,10 +106,11 @@
 
 .link {
     color: @theme-text;
+    transition-duration: @transition-time;
 
     &:hover {
 
-        color: @theme-title;
+        color: @text-hover;
     }
 }
 

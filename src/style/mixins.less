@@ -1,4 +1,3 @@
-
 .flex-center () {
     display: flex;
     justify-content: center;
@@ -22,9 +21,11 @@
         font-size: @size;
         font-weight: bold;
         color: @color;
+
         @media @mobile {
             font-size: @size / 1.5;
         }
+
         @media @tablet {
             font-size: @size / 1.5;
         }
@@ -40,8 +41,9 @@
     box-shadow: @label-box-shadow;
 }
 
-.label-hover (@background: @label-hover, @text: @label-hover-text, @border: @label-border) {
+.label-hover (@background: @text-hover, @text: @label-hover-text, @border: @label-border) {
     transition: @transition-time background-color;
+
     &:hover {
         .label(@background, @text, @border);
     }
