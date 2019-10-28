@@ -61,8 +61,8 @@ const Post = ({ data, pageContext }) => {
             coverUrl={coverUrl}
           />
         </div>
-        <SuggestedPosts posts={suggestedPosts} />
         <Comments pageCanonicalUrl={canonicalUrl} pageId={title} />
+        <SuggestedPosts posts={suggestedPosts} />
       </div>
     </Layout>
   )

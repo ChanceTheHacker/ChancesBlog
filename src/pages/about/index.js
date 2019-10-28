@@ -9,6 +9,7 @@ import { Waypoint } from 'react-waypoint'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import Utils from '../../utils'
+import Config from '../../../config'
 import * as style from './index.module.less'
 import software from '../../components/about-info/software-blurb'
 import demo from '../../components/about-info/demo-blurb'
@@ -65,7 +66,7 @@ const About = ({ data: { profilePhoto, skillIcons } }) => {
             Email me:{' '}
             <a
               className={style.link}
-              href="mailto:chance@chancethehacker.com"
+              href={Config.social.myEmail}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -76,7 +77,7 @@ const About = ({ data: { profilePhoto, skillIcons } }) => {
             Tweet me:{' '}
             <a
               className={style.link}
-              href="https://twitter.com/chance_Hacker"
+              href={Config.social.twitter}
               target="_blank"
               rel="noopener noreferrer"
             >
