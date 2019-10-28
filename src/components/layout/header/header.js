@@ -96,9 +96,7 @@ class Header extends Component {
           <li>
             <Link to={Utils.resolvePageUrl(Config.pages.home)}>Blog</Link>
           </li>
-          <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.mozilla)}>Firefox</Link>
-          </li>
+
           <li>
             <Link to={Utils.resolvePageUrl(Config.pages.about)}>Me</Link>
           </li>
@@ -107,6 +105,9 @@ class Header extends Component {
           </li>
           <li>
             <Link to={Utils.resolvePageUrl(Config.pages.fun)}>Fun</Link>
+          </li>
+          <li>
+            <Link to={Utils.resolvePageUrl(Config.pages.mozilla)}>Firefox</Link>
           </li>
         </ul>
         <ul>
