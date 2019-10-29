@@ -61,7 +61,7 @@ const Mozilla = ({ data: {} }) => {
           <h3>
             <a
               className={style.link}
-              href="http://twitter.com/intent/tweet?text=I%20love%20%20@firefox%20%20because%20of%20it's%20privacy%2C%20but%20the%20animations%20are%20so%20slow.%20%20@mozilla%20%20as%20users%2C%20we%20want%20privacy%20and%20awesome%20animations!"
+              href="http://twitter.com/intent/tweet?text=%40Firefox%2C%20we%20love%20your%20privacy%20centric%20focus%2C%20but%20we%20also%20love%20animations.%20Please%20fix%20animations%20in%20%40mozilla%20firefox%2C%20and%20allow%20us%20to%20finally%20drop%20chrome%20for%20good!%20%23FixFirefox"
               target="_blank"
               rel="noopener noreferrer"
             >
