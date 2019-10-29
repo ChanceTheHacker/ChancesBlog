@@ -1,8 +1,8 @@
 {
-  "name": "personal-site",
-  "description": "My personal site",
+  "name": "Chance's Site",
+  "description": "Chance's Site",
   "version": "1.0.0",
-  "author": "lcolella",
+  "author": "Chance The Hacker",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.0.53",
