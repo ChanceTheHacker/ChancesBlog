@@ -9,6 +9,7 @@
 @brown: #301d1d;
 @purple: rgb(158, 128, 240);
 @light-purple: rgb(191, 168, 253);
+@purple-a: rgba(158, 128, 240, 0.151);
 @teal: #4acccc;
 @clear: #1110;
 @white: #b2e6fc;
@@ -62,7 +63,7 @@
 @transparent: @color-transparent-lighter;
 @color-transparent: rgba(0, 0, 0, .1);
 @color-transparent-darker: rgba(0, 0, 0, .2);
-@color-transparent-lighter: rgba(255, 255, 255, 0.08);
+@color-transparent-lighter: @purple-a;
 
 // Device breakpoints
 @mobile: ~'only screen and (max-width : 480px)';
