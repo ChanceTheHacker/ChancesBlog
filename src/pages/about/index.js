@@ -52,7 +52,7 @@ const About = ({ data: { profilePhoto, skillIcons } }) => {
     <Layout>
       <SEO
         title="About"
-        description="A brief summary of this blog and my work"
+        description="a summary of chance the hacker, and my contact information"
         path="about"
       />
       <div className={style.container}>

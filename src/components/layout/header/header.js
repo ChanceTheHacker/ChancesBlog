@@ -1,6 +1,7 @@
 /* Vendor imports */
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
+import { useTransition, animated } from 'react-spring'
 import {
   FaBars,
   FaTimes,
@@ -57,109 +58,128 @@ class Header extends Component {
     })
   }
 
-  render = () => (
-    <div
-      className={`${style.container} theme-checker`}
-      style={this.state.fixedHeader ? { backgroundImage: 'none' } : null}
-      theme="dark"
-    >
-      <div className={style.titleContainer}>
-        <div className={style.title}>
-          <Link to={Utils.resolvePageUrl(Config.pages.home)}>
-            <h4>{Config.siteTitle}</h4>
-            <p
-              className={
-                this.state.fixedHeader
-                  ? style.hiddenDescription
-                  : style.visibleDescription
-              }
-            >
-              {Config.siteDescription}
-            </p>
-          </Link>
-        </div>
-        <div className={style.menuButton}>
-          {this.state.collapsedMenu ? (
-            <FaBars size="30" onClick={this.toggleMenu} />
-          ) : (
-            <FaTimes size="30" onClick={this.toggleMenu} />
-          )}
-        </div>
-      </div>
-      <div
-        className={[
-          style.list,
-          this.state.collapsedMenu ? style.collapsedMenu : style.expandedMenu,
-        ].join(' ')}
-      >
-        <ul>
-          <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.home)}>Blog</Link>
-          </li>
+  render() {
+    //this needs to be rewritten in react hooks, this is definately on the todo
 
-          <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.about)}>Me</Link>
-          </li>
-          <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.tag)}>Tags</Link>
-          </li>
-          <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.fun)}>Fun</Link>
-          </li>
-          <li>
-            <Link to={Utils.resolvePageUrl(Config.pages.mozilla)}>Firefox</Link>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={Config.social.github}
-            >
-              <FaGithub size="30" />
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={Config.social.linkedin}
-            >
-              <FaLinkedin size="30" />
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={Config.social.twitter}
-            >
-              <FaTwitter size="30" />
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={Config.social.myEmail}
-            >
-              <FaEnvelope size="30" />
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={Config.social.mySite}
-            >
-              <HackerIcon size="30" />
-            </a>
-          </li>
-        </ul>
+    // const theHacker = "The Hacker's".split('').map((letter, index) => {
+    //   return {
+    //     letter: letter,
+    //     key: index,
+    //   }
+    // })
+    // console.log(theHacker)
+    // const transition = useTransition(theHacker, letter => letter.key, {
+    //   from: { opacity: 0 },
+    //   enter: { opacity: 1 },
+    //   leave: { opacity: 0 },
+    // })
+    return (
+      <div className={`${style.container} theme-checker`} theme="dark">
+        <div className={style.titleContainer}>
+          <div className={style.title}>
+            <Link to={Utils.resolvePageUrl(Config.pages.home)}>
+              {/* <h4>
+                {this.state.fixedHeader
+                  ? Config.headerTitleShort
+                  : Config.headerTitle}
+              </h4> */}
+              <h4>Chance The Hacker's Blog</h4>
+              <p
+                className={
+                  this.state.fixedHeader
+                    ? style.hiddenDescription
+                    : style.visibleDescription
+                }
+              >
+                {Config.headerSubtitle}
+              </p>
+            </Link>
+          </div>
+          <div className={style.menuButton}>
+            {this.state.collapsedMenu ? (
+              <FaBars size="30" onClick={this.toggleMenu} />
+            ) : (
+              <FaTimes size="30" onClick={this.toggleMenu} />
+            )}
+          </div>
+        </div>
+        <div
+          className={[
+            style.list,
+            this.state.collapsedMenu ? style.collapsedMenu : style.expandedMenu,
+          ].join(' ')}
+        >
+          <ul>
+            <li>
+              <Link to={Utils.resolvePageUrl(Config.pages.home)}>Blog</Link>
+            </li>
+
+            <li>
+              <Link to={Utils.resolvePageUrl(Config.pages.about)}>Me</Link>
+            </li>
+            <li>
+              <Link to={Utils.resolvePageUrl(Config.pages.tag)}>Tags</Link>
+            </li>
+            <li>
+              <Link to={Utils.resolvePageUrl(Config.pages.fun)}>Fun</Link>
+            </li>
+            <li>
+              <Link to={Utils.resolvePageUrl(Config.pages.mozilla)}>
+                Firefox
+              </Link>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                href={Config.social.github}
+              >
+                <FaGithub size="30" />
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                href={Config.social.linkedin}
+              >
+                <FaLinkedin size="30" />
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                href={Config.social.twitter}
+              >
+                <FaTwitter size="30" />
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                href={Config.social.myEmail}
+              >
+                <FaEnvelope size="30" />
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                href={Config.social.mySite}
+              >
+                <HackerIcon size="30" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Header
