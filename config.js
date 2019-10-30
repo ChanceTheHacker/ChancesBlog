@@ -1,8 +1,8 @@
 module.exports = {
-  pathPrefix: '/gatsby-starter-developer-blog',
+  pathPrefix: '/blog',
   siteUrl: 'https://www.chancethehacker.com',
-  siteTitle: 'Chance Peragine',
-  siteDescription: 'Freelance Developer & Demolition Expert',
+  siteTitle: 'Chance The Hacker',
+  siteDescription: 'Web Development Blog',
   author: 'Chance',
   postsForArchivePage: 3,
   defaultLanguage: 'en',
