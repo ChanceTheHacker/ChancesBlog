@@ -21,7 +21,7 @@ module.exports = {
     github: 'https://github.com/wcperagine',
     linkedin: 'https://www.linkedin.com/in/william-peragine',
     mySite: 'https://www.chancethehacker.com',
-    myEmail: 'mailto:chancetheh4ck3r@gmail.com',
+    myEmail: 'mailto:chance@chancethehacker.com',
     twitter: 'https://twitter.com/chance_hacker',
   },
   tags: {
