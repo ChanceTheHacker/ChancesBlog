@@ -21,9 +21,9 @@ const Header = () => {
   const [currentScroll, setCurrentScroll] = useState(0)
   const [isMenuOpen, setMenuOpen] = useState(false)
 
-  toggleFixedHeader = () => {
-    if (!this.toggleFixedHeader.animationInProgress) {
-      this.toggleFixedHeader.animationInProgress = true
+  const toggleFixedHeader = () => {
+    if (!toggleFixedHeader.animationInProgress) {
+      toggleFixedHeader.animationInProgress = true
       setTimeout(() => {
         this.setState(
           {
