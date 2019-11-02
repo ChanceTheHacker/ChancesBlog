@@ -36,7 +36,7 @@ const Fun = ({}) => {
     <Layout>
       <SEO
         title="Just for fun"
-        description="Page for fun"
+        description="fun with animations and react spring"
         path="fun"
         keywords={['javascript', 'frontend', 'blog']}
       />

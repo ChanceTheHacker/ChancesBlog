@@ -33,7 +33,7 @@ const Contact = ({ data: { profilePhoto, skillIcons } }) => {
     <Layout title="Need a Website?">
       <SEO
         title="Contact"
-        description="A brief summary of this blog and my work"
+        description="contact chance the hacker"
         path="contact"
       />
       <div className={style.container}>
