@@ -11,7 +11,6 @@ import {
 } from 'react-icons/fa'
 /* App imports */
 import useEvent from '../../hooks/useEvent'
-import useStateThenCallback from '../../hooks/useStateThenCallback'
 
 import HackerIcon from '../../../images/hacker-icon'
 import style from './header.module.less'
