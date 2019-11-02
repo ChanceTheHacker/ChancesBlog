@@ -23,7 +23,9 @@
         margin-top: @margin-medium * 5;
     }
 
-    @media @mobile {
+    @media @mobile,
+    @tablet,
+    @smallDesktop {
         padding: @padding-small;
         flex-direction: column;
     }
@@ -34,7 +36,9 @@
     width: 100%;
     align-items: center;
 
-    @media @mobile {
+    @media @mobile,
+    @tablet,
+    @smallDesktop {
         justify-content: space-evenly;
     }
 }
@@ -65,6 +69,7 @@
 .hiddenDescription {
 
     @media @tablet,
+    @smallDesktop,
     @mobile,
     @desktop {
         max-height: 0px;
@@ -78,6 +83,7 @@
 .visibleDescription {
 
     @media @tablet,
+    @smallDesktop,
     @mobile,
     @desktop {
         max-height: 100px;
@@ -99,7 +105,9 @@
         margin: @margin-zero @margin-medium;
         padding: @padding-zero;
 
-        @media @mobile {
+        @media @tablet,
+        @smallDesktop,
+        @mobile {
             margin-top: @margin-small;
         }
 
@@ -122,12 +130,21 @@
         flex-direction: column;
         margin-top: @margin-small;
     }
+
+    @media @tablet,
+    @smallDesktop {
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: @margin-small;
+    }
 }
 
 .menuButton {
     display: none;
 
-    @media @mobile {
+    @media @mobile,
+    @tablet,
+    @smallDesktop {
         display: block;
         margin-left: @margin-medium;
     }
@@ -145,12 +162,33 @@
             @transition-time margin ease,
             @transition-time opacity ease;
     }
+
+    @media @tablet,
+    @smallDesktop {
+        pointer-events: none;
+        max-height: 0px;
+        margin: 0px;
+        opacity: 0;
+        transition: @transition-time max-height ease,
+            @transition-time margin ease,
+            @transition-time opacity ease;
+    }
+
 }
 
 .expandedMenu {
 
 
     @media @mobile {
+        pointer-events: all;
+        max-height: 200px;
+        opacity: 1;
+        transition: @transition-time max-height ease,
+            @transition-time opacity ease;
+    }
+
+    @media @tablet,
+    @smallDesktop {
         pointer-events: all;
         max-height: 200px;
         opacity: 1;

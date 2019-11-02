@@ -18,7 +18,7 @@ import Config from '../../../../config'
 import Utils from '../../../utils'
 
 const Header = () => {
-  const [isMenuOpen, setMenuOpen] = useState(true)
+  const [isMenuOpen, setMenuOpen] = useState(false)
   const [isHeaderCollapsed, setHeaderCollapsed] = useState(false)
 
   function toggleFixedHeader() {
@@ -87,7 +87,7 @@ const Header = () => {
           </Link>
         </div>
         <div className={style.menuButton}>
-          {isMenuOpen ? (
+          {!isMenuOpen ? (
             <FaBars size="30" onClick={toggleMenu} />
           ) : (
             <FaTimes size="30" onClick={toggleMenu} />
@@ -97,7 +97,7 @@ const Header = () => {
       <div
         className={[
           style.list,
-          isMenuOpen ? style.collapsedMenu : style.expandedMenu,
+          isMenuOpen ? style.expandedMenu : style.collapsedMenu,
         ].join(' ')}
       >
         <ul>
