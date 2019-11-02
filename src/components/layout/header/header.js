@@ -1,6 +1,6 @@
-/* Vendor imports */
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
+import { useTransition, animated } from 'react-spring'
 import {
   FaBars,
   FaTimes,
@@ -10,86 +10,97 @@ import {
   FaEnvelope,
 } from 'react-icons/fa'
 /* App imports */
+import useEvent from '../../hooks/useEvent'
+
 import HackerIcon from '../../../images/hacker-icon'
 import style from './header.module.less'
 import Config from '../../../../config'
 import Utils from '../../../utils'
 
-class Header extends Component {
-  constructor() {
-    super()
-    this.state = {
-      lastScrollY: 0,
-      fixedHeader: false,
-      collapsedMenu: true,
-    }
-    this.toggleFixedHeader = this.toggleFixedHeader.bind(this)
-    this.toggleMenu = this.toggleMenu.bind(this)
-  }
+const Header = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isHeaderCollapsed, setHeaderCollapsed] = useState(false)
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.toggleFixedHeader)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.toggleFixedHeader)
-  }
-
-  toggleFixedHeader() {
-    if (!this.toggleFixedHeader.animationInProgress) {
-      this.toggleFixedHeader.animationInProgress = true
-      setTimeout(() => {
-        this.setState(
-          {
-            lastScrollY: window.scrollY,
-            fixedHeader:
-              window.scrollY > 100 && this.state.lastScrollY < window.scrollY,
-          },
-          () => (this.toggleFixedHeader.animationInProgress = false)
-        )
-      }, 200)
+  function toggleFixedHeader() {
+    if (!isHeaderCollapsed && window.scrollY > 100) {
+      setHeaderCollapsed(true)
+    } else if (isHeaderCollapsed && window.scrollY < 100) {
+      setHeaderCollapsed(false)
     }
   }
 
-  toggleMenu() {
-    this.setState({
-      collapsedMenu: !this.state.collapsedMenu,
-    })
+  function toggleMenu() {
+    setMenuOpen(!isMenuOpen)
   }
 
-  render = () => (
-    <div
-      className={`${style.container} theme-checker`}
-      style={this.state.fixedHeader ? { backgroundImage: 'none' } : null}
-      theme="dark"
-    >
+  //this function adds a listener and cleans it up when component is unmounted
+
+  useEvent('scroll', toggleFixedHeader)
+
+  const theHacker = ' The Hacker'.split('').map((letter, index) => {
+    return {
+      letter: letter,
+      key: index,
+    }
+  })
+
+  const transition = useTransition(
+    !isHeaderCollapsed ? theHacker : [],
+    letter => letter.key,
+    {
+      trail: 50,
+      from: {
+        opacity: 0,
+        transform: 'scale(0)',
+      },
+      enter: {
+        opacity: 1,
+        transform: 'scale(1)',
+      },
+      leave: {
+        opacity: 0,
+        transform: 'scale(0)',
+      },
+    }
+  )
+
+  return (
+    <div className={`${style.container} theme-checker`} theme="dark">
       <div className={style.titleContainer}>
         <div className={style.title}>
           <Link to={Utils.resolvePageUrl(Config.pages.home)}>
-            <h4>{Config.siteTitle}</h4>
+            <h4>
+              Chance
+              {transition.map(({ item, key, props: transition }) => (
+                <animated.span style={transition} key={key}>
+                  {item.letter}
+                </animated.span>
+              ))}
+              's Blog
+            </h4>
             <p
               className={
-                this.state.fixedHeader
+                isHeaderCollapsed
                   ? style.hiddenDescription
                   : style.visibleDescription
               }
             >
-              {Config.siteDescription}
+              {Config.headerSubtitle}
             </p>
           </Link>
         </div>
         <div className={style.menuButton}>
-          {this.state.collapsedMenu ? (
-            <FaBars size="30" onClick={this.toggleMenu} />
+          {isMenuOpen ? (
+            <FaBars size="30" onClick={toggleMenu} />
           ) : (
-            <FaTimes size="30" onClick={this.toggleMenu} />
+            <FaTimes size="30" onClick={toggleMenu} />
           )}
         </div>
       </div>
       <div
         className={[
           style.list,
-          this.state.collapsedMenu ? style.collapsedMenu : style.expandedMenu,
+          isMenuOpen ? style.collapsedMenu : style.expandedMenu,
         ].join(' ')}
       >
         <ul>

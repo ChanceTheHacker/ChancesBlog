@@ -52,7 +52,7 @@ const Mozilla = ({ data: {} }) => {
     <Layout title="Let's fix Firefox!">
       <SEO
         title="Mozilla"
-        description="A brief summary of this blog and my work"
+        description="a call to action for fixing the state of animations in mozilla"
         path="mozilla"
       />
       <div className={style.container}>
