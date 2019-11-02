@@ -33,19 +33,51 @@ const Header = () => {
     setMenuOpen(!isMenuOpen)
   }
 
+  //this function adds a listener and cleans it up when component is unmounted
+
   useEvent('scroll', toggleFixedHeader)
+
+  const theHacker = ' The Hacker'.split('').map((letter, index) => {
+    return {
+      letter: letter,
+      key: index,
+    }
+  })
+
+  const transition = useTransition(
+    !isHeaderCollapsed ? theHacker : [],
+    letter => letter.key,
+    {
+      trail: 50,
+      from: {
+        opacity: 0,
+        transform: 'scale(0)',
+      },
+      enter: {
+        opacity: 1,
+        transform: 'scale(1)',
+      },
+      leave: {
+        opacity: 0,
+        transform: 'scale(0)',
+      },
+    }
+  )
 
   return (
     <div className={`${style.container} theme-checker`} theme="dark">
       <div className={style.titleContainer}>
         <div className={style.title}>
           <Link to={Utils.resolvePageUrl(Config.pages.home)}>
-            {/* <h4>
-          {this.state.fixedHeader
-            ? Config.headerTitleShort
-            : Config.headerTitle}
-        </h4> */}
-            <h4>Chance The Hacker's Blog</h4>
+            <h4>
+              Chance
+              {transition.map(({ item, key, props: transition }) => (
+                <animated.span style={transition} key={key}>
+                  {item.letter}
+                </animated.span>
+              ))}
+              's Blog
+            </h4>
             <p
               className={
                 isHeaderCollapsed

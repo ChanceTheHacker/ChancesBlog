@@ -61,18 +61,6 @@ class Header extends Component {
   render() {
     //this needs to be rewritten in react hooks, this is definately on the todo
 
-    // const theHacker = "The Hacker's".split('').map((letter, index) => {
-    //   return {
-    //     letter: letter,
-    //     key: index,
-    //   }
-    // })
-    // console.log(theHacker)
-    // const transition = useTransition(theHacker, letter => letter.key, {
-    //   from: { opacity: 0 },
-    //   enter: { opacity: 1 },
-    //   leave: { opacity: 0 },
-    // })
     return (
       <div className={`${style.container} theme-checker`} theme="dark">
         <div className={style.titleContainer}>
