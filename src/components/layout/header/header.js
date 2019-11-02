@@ -49,6 +49,7 @@ const Header = () => {
     letter => letter.key,
     {
       trail: 50,
+      unique: true,
       from: {
         opacity: 0,
       },
