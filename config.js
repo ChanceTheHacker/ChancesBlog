@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/blog',
+  pathPrefix: '/',
   siteUrl: 'https://www.chancethehacker.com',
   siteTitle: 'Web Development',
   siteDescription: 'Tutorials and Conversations',
