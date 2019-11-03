@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaTwitter,
   FaEnvelope,
+  FaDev,
 } from 'react-icons/fa'
 /* App imports */
 import useEvent from '../../hooks/useEvent'
@@ -145,6 +146,15 @@ const Header = () => {
               href={Config.social.twitter}
             >
               <FaTwitter size="30" />
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              href="https://dev.to/chance_hacker"
+            >
+              <FaDev size="30" />
             </a>
           </li>
           <li>
