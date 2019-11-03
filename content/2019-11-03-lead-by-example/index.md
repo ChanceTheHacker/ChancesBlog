@@ -8,7 +8,7 @@ excerpt: Learn how to lead through communication, and understanding. Learn to li
 ---
 
 #Lead by asking questions
-Something beautiful just happened to me. I’m at work, and in between tasks sometimes i work on my site <a href="https://chancethehacker.com" rel="nofollow noopener noreferrer" target="_blank">Chance The Hacker</a> or write blog posts on google docs. I was fiddling with another blog post I’m working on and stopped to check in with a new guy on site. I spoke with him for a couple minutes, getting to know the guy.
+Something beautiful just happened to me. I’m at work, and in between tasks sometimes I work on my site <a href="https://chancethehacker.com" rel="nofollow noopener noreferrer" target="_blank">Chance The Hacker</a> or write blog posts on google docs. I was fiddling with another blog post I’m working on and stopped to check in with a new guy on site. I spoke with him for a couple minutes, getting to know the guy.
 
 As I walked off, he said "Hey Chance?"
 
