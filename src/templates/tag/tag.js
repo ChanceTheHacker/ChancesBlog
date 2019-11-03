@@ -22,7 +22,7 @@ const TagPage = ({ data, pageContext }) => {
     <Layout>
       <SEO
         title={tagName}
-        description={`All post about ${tagName}`}
+        description={`All posts dealing with ${tagName}`}
         path={Utils.resolvePageUrl(tagPagePath, tag)}
         keywords={[tagName]}
       />

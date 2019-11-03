@@ -83,5 +83,24 @@ module.exports = {
       description:
         'Meant for people who are somewhat familiar or not at all familiar with the topic',
     },
+    leadership: {
+      name: 'Leadership',
+      description: 'Steering people towards progress by earning their respect',
+    },
+    communication: {
+      name: 'Communication',
+      description:
+        'Sharing your thoughts clearly, and vividly, without detriment to others',
+    },
+    listening: {
+      name: 'Listening',
+      description:
+        'Allow others to express themselves and only sharing your opinion when it is wanted, or necessary',
+    },
+    conflictresolution: {
+      name: 'Conflict Resolution',
+      description:
+        'getting to the root of the problem, and finding how to solve it amicably',
+    },
   },
 }
