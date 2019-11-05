@@ -4,7 +4,7 @@ date: 2019-11-04
 tags: [softskills, communication, listening, conflictresolution, happiness]
 path: blog/smile-more
 cover: ./preview.png
-excerpt: We are discussing smiling, how it affected Jason’s life and how your it can benefit your career.
+excerpt: We are discussing smiling, how it affected Jason’s life and how it can benefit your career.
 ---
 
 #Say Cheese!
