@@ -13,6 +13,7 @@ import Config from '../../../config'
 import * as style from './index.module.less'
 import software from '../../components/about-info/software-blurb'
 import demo from '../../components/about-info/demo-blurb'
+import HackerIcon from '../../images/hacker-icon'
 
 const About = ({ data: { profilePhoto, skillIcons } }) => {
   const delay = 2
@@ -57,7 +58,8 @@ const About = ({ data: { profilePhoto, skillIcons } }) => {
       />
       <div className={style.container}>
         <animated.div className={style.photo} style={springLeft}>
-          <Img fluid={profilePhoto.childImageSharp.fluid} />
+          {/* <Img fluid={profilePhoto.childImageSharp.fluid} /> */}
+          <HackerIcon size="100%" />
         </animated.div>
         <div className={style.content}>
           <animated.h1 style={springRight}>Hi, I'm Chance!</animated.h1>
