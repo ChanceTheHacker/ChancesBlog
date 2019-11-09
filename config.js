@@ -102,5 +102,16 @@ module.exports = {
       description:
         "Happiness is something we all want, and yet it's so hard to achieve",
     },
+    timemanagement: {
+      name: 'Time Management',
+      description: 'How do the hours seem to slip away?',
+    },
+    procrastination: {
+      description: "Don't delay! Act now!",
+    },
+    negotiation: {
+      description:
+        'How to ask for more, without whining or sounding ungrateful',
+    },
   },
 }
