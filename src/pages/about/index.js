@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { useSpring, animated, useSprings } from 'react-spring'
-import { Waypoint } from 'react-waypoint'
 /* App imports */
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'

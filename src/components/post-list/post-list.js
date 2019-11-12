@@ -1,6 +1,5 @@
 /* Vendor imports */
-import React, { useState } from 'react'
-import { Waypoint } from 'react-waypoint'
+import React from 'react'
 import { useTrail, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'

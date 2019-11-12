@@ -7,7 +7,7 @@ import style from './fun.module.less'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
-const Fun = ({}) => {
+const Fun = () => {
   const fast = { tension: 1200, friction: 40 }
   const slow = { mass: 10, tension: 200, friction: 50 }
   const trans = (x, y) =>

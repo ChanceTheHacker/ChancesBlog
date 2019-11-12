@@ -12,7 +12,7 @@ import Utils from '../../utils'
 import Config from '../../../config'
 import * as style from './mozilla.module.less'
 
-const Mozilla = ({ data: {} }) => {
+const Mozilla = () => {
   const title = 'mozilla'
   const path = '/mozilla'
   const canonicalUrl = Utils.resolvePageUrl(

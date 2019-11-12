@@ -44,6 +44,7 @@ const Contact = ({ data: { profilePhoto, skillIcons } }) => {
               className={style.link}
               href="mailto:chance@chancethehacker.com"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Chance@ChanceTheHacker.com
             </a>
@@ -56,6 +57,7 @@ const Contact = ({ data: { profilePhoto, skillIcons } }) => {
               className={style.link}
               href="https://www.twitter.com/chance_hacker"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Chance_Hacker@Twitter
             </a>
