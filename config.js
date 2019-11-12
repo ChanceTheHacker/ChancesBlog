@@ -21,7 +21,7 @@ module.exports = {
     mozilla: 'mozilla',
   },
   social: {
-    github: 'https://github.com/wcperagine',
+    github: 'https://github.com/ChanceTheHacker',
     linkedin: 'https://www.linkedin.com/in/william-peragine',
     mySite: 'https://www.chancethehacker.com',
     myEmail: 'mailto:chance@chancethehacker.com',
