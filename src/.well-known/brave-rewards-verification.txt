@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: chancethehacker.com
+Token: 35f1287f800a84f33fe7a641eab2717bf2d411f08081e62b735211054c9ef5c4
