@@ -113,5 +113,8 @@ module.exports = {
       description:
         'How to ask for more, without whining or sounding ungrateful',
     },
+    update: {
+      description: "A look into my life and what I'm currently doing",
+    },
   },
 }
