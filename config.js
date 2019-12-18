@@ -116,5 +116,15 @@ module.exports = {
     update: {
       description: "A look into my life and what I'm currently doing",
     },
+    interview: {
+      description: 'Tips on interviews or looking for a new job',
+    },
+    tips: {
+      description: "Me giving advice I'm probably not qualified to give",
+    },
+    career: {
+      description:
+        'Discussing career, how to grow your career, or maybe how to change it entirely',
+    },
   },
 }
